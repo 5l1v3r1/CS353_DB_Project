@@ -1,0 +1,118 @@
+/*Parts of this CSS file is taken from my website under construction: http://celikk.me
+  All code here is written by me. Very basic CSS.
+ */
+
+@font-face {
+    font-family: thickFont;
+    src: url(IQHow_FEYlDC4Gzy_m8fcnbFhgvWbfSbdVg11QabG8w.woff);
+}
+
+@font-face {
+	font-family: thinFont;
+	src: url(zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff);	
+}
+
+.blueBorder {
+	border: 1px solid pink;
+}
+
+html {
+	background: black;
+}
+
+body {
+	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	line-height: 1.4em;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url(road-05_optimised_res.jpg);
+	background-size: cover;
+}
+
+.floatCenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.centerWrapper {
+	width: 940px;
+	margin: 0 auto;
+	text-align: justify;
+}
+
+#header {
+	margin-top: 10%;
+	font-family: thickFont;
+	
+}
+
+.welcomeHeaderDescription {
+	line-height: 1.4em;
+	font-family: thinFont;
+}
+
+#header p {
+	color: #ffffff;
+}
+
+#header button {
+	color: #ffffff;
+	background-color: Transparent;
+}
+
+#header button:hover {
+	color: #a9a9a9;
+}
+
+#formArea p {
+	font-size: 20px;
+}
+
+.floatRight {
+	float: right;
+}
+
+.bigText {
+	font-size: 100px;
+	font-weight: 700;
+	text-shadow: 0 0 30px rgba(150,150,150,1);
+}
+
+.centerText {
+	text-align: center;
+}
+
+.paddingTop40px {
+	padding-top: 40px;
+}
+
+.mediumText {
+	font-size: 30px;
+	color: #000;
+	font-weight: 700;
+}
+
+.box {
+	display: inline-block;
+	font-size: 20px;
+	padding: 10px;
+	border: 2px solid #fff;
+	width: 230px;
+}
+
+.box:hover {
+	border: 2px solid #a9a9a9;
+}
+
+.siteCategories a {
+	color: #ffffff;
+}
+
+#sticky {
+	padding-bottom: 0px;
+}
