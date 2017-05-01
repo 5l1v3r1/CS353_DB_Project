@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT  FROM test', function(err, result) {
+    client.query('SELECT * FROM test', function(err, result) {
       
 	done();
       
@@ -25,12 +25,11 @@ app.get('/db', function (request, response) {
         	console.error(err); response.send("Error " + err); 
       	}
       	else { 
-	  	response.render('pages/db', {results: result.rows} ); 
+	  		esponse.render('pages/db', {results: result.rows} );
       	}
     });
   });
 });
-
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
