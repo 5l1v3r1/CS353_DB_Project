@@ -1,0 +1,102 @@
+<!DOCTYPE html>                
+                                    <div class="Layout-header">
+                                                    
+    
+
+<header class="Header" role="banner" data-error="Error">
+            <a href="/" class="Header-logo js-optInExcluded">
+            <img src="http://i67.tinypic.com/10fqsfo.png" alt="CarShareToday" width="262" height="45">
+        </a>
+    
+                        <nav class="Header-navigation js-site-menu">
+                
+    
+                    
+            <ul class="Header-navigationList u-reset u-inlineBlock">
+            
+                            <li class="Header-navigationItem">
+                    <a href="/koltuk-ilani-ver" class="Header-navigationButton c-button c-button--primary">
+                        <span class="Header-navigationButton-icon">
+                            <svg aria-hidden="true" style="width: 18px; height: 18px; fill: currentColor;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-plus-circle"></use></svg>
+
+                        </span>Search For A Ride</a>
+                </li>
+                    </ul>
+    
+    <ul class="Header-navigationList u-reset u-inlineBlock">
+        <li class="Header-navigationItem">
+            
+    </li><li class="Header-navigationItem">
+        <a href="/uye-ol" class="Header-navigationText">Sign Up</a>
+    </li>
+
+            <li class="Header-navigationItem">
+                                            <a href="https://www.blablacar.com.tr/connect/facebook" class="Header-navigationText js-oauth-connect" data-provider="facebook">Log In</a>
+                    </li>
+    
+        
+    </ul>
+
+            </nav>
+            </header>
+
+                        
+                                            </div>
+                
+                                                    
+                                    <main id="main-container" class="Layout-main" role="main">
+                                                    <div class="c-feedbackMessage flash-template u-hide" data-level-class="alert-LEVEL" data-message-selector=".flash-content">
+                                <p class="u-marginNone u-white flash-content"></p>
+                                <button class="u-reset c-feedbackMessage-buttonClose bbc-icon2-cross">
+                                    <span class="u-visuallyHidden">Close</span>
+                                </button>
+                            </div>
+                        
+                        <div class="Layout-content">
+                                <div class="Home u-flex">
+        <article id="homepage-block-main" class="HomeBlock HomeBlock-main">
+            <div class="HomeBlock-image" style="background-image: url(http://i65.tinypic.com/ad21cx.png);" aria-hidden="true">
+            </div>
+            <div class="HomeBlock-inner HomeBlock-pattern">
+                <h1 class="HomeBlock-title HomeBlock-title--primary u-darkGray">Search For A Ride</h1>
+                <div class="HomeBlock-content">
+                    <p class="HomeBlock-contentText"> </p>
+                    
+<form id="search-form" class="u-marginNone u-flex js-trip-search-form" action="/search" role="search">
+    <div class="c-input c-input--half js-trip-search-error-from-container">
+        <input type="text" id="search_from_name" name="fn" class="c-input-field u-fullWidth place-autocomplete js-trip-search-input-from" placeholder="" data-autocomplete="name" autocomplete="off" data-js="form-input-from">
+        <label for="search_from_name" class="c-input-label">
+            <span>Starting Point...</span>
+        </label>
+        <span class="c-input-error js-trip-search-error-from-text"></span>
+    </div>
+
+    <div class="c-input c-input--half js-trip-search-error-to-container">
+        <input type="text" id="search_to_name" name="tn" class="c-input-field u-fullWidth place-autocomplete js-trip-search-input-to" placeholder="" data-autocomplete="name" autocomplete="off" data-js="form-input-to">
+        <label for="search_to_name" class="c-input-label">
+            <span>Destination...</span>
+        </label>
+        <span class="c-input-error js-trip-search-error-to-text"></span>
+    </div>
+
+    <div class="c-input c-input--half">
+        <input type="text" id="search_to_date" name="db" class="c-input-field datepicker hasDatepicker" placeholder="" data-autocomplete="name" autocomplete="off" data-js="form-input-date">
+        <label for="search_to_date" class="c-input-label">
+            <span>Date</span>
+        </label>
+    </div>
+
+    <button type="submit" class="c-input--half Home-button c-button c-button--primary c-button--wide js-trip-search-submit">Find A Ride</button>
+
+    <input type="hidden" name="fc" data-autocomplete="coordinates" data-autocomplete-ref="search_from_name" value="">
+    <input type="hidden" name="fcc" data-autocomplete="country_code" data-autocomplete-ref="search_from_name" value="">
+    <input type="hidden" name="fp" data-autocomplete="is_precise" data-autocomplete-ref="search_from_name" value="">
+    <input type="hidden" name="tc" data-autocomplete="coordinates" data-autocomplete-ref="search_to_name">
+    <input type="hidden" name="tcc" data-autocomplete="country_code" data-autocomplete-ref="search_to_name">
+    <input type="hidden" name="tp" data-autocomplete="is_precise" data-autocomplete-ref="search_to_name">
+</form>
+
+                </div>
+            </div>
+        </article>
+        </html>

@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html data-locale="tr_TR" lang="tr" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XQYOWFNAAQsEVVhX"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+
+        <title>Yolculuk ilanı ver, yolculuk masraflarını paylaş | 2. Adım | BlaBlaCar.com.tr</title>
+
+    
+    
+    <meta name="robots" content="noindex, nofollow" />
+
+    
+    
+
+        <meta name="robots" content="noodp, noydir">
+    <meta name="description" content="BlaBlaCar'da sürücüler boş koltuklarını listeyerek yolculuk ilanı verebilir, böylece yolculuk arayan yolcuları bulabilir.">
+    <meta name="keywords" content="araçpaylaşım, yolculuk paylaşımı, yolculuk paylaşma, araç-paylaşma, yolculukpaylaşma, yolculukpaylaşım, araba paylaşımı, yolculuk-paylaşım, oto paylaşım reklamı, araba paylaşım, ücretsiz yolculukpaylaşım, otopaylaşım yolculuk, ucuz yolculuk, yolculuk bul">
+
+                <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.blablacar.com.tr/offer-seats/2" >
+    
+                <link href="/v-1495196132/assets/build/vendor/css/main.css" rel="stylesheet" type="text/css">
+
+<!--[if gt IE 9]><!-->
+<link href="/v-1495196132/assets/build/css/blablacar.css" rel="stylesheet" type="text/css">
+<!--<![endif]-->
+
+<!--[if lte IE 9]>
+<link href="/v-1495196132/assets/build/css/blablacar_1.css" rel="stylesheet" type="text/css">
+<link href="/v-1495196132/assets/build/css/blablacar_2.css" rel="stylesheet" type="text/css">
+<![endif]-->
+    
+        <link rel="apple-touch-icon" sizes="57x57" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://d1ovtcjitiy70m.cloudfront.net/vi-1/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+        <meta property="fb:app_id" content="123152947759014">
+    <meta property="og:url" content="https://www.blablacar.com.tr/offer-seats/2">
+
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="BlaBlaCar.com.tr">
+            <meta property="og:title" content="Yolculuk ilanı ver, yolculuk masraflarını paylaş | 2. Adım">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://www.blablacar.com.tr/images/logo-blabla.png">
+    
+                <meta name="application-name" content="BlaBlaCar">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="https://www.blablacar.com.tr/blablacar-pinned-default.png">
+        <meta name="msapplication-square70x70logo" content="https://www.blablacar.com.tr/blablacar-pinned-small.png">
+        <meta name="msapplication-square150x150logo" content="https://www.blablacar.com.tr/blablacar-pinned-medium.png">
+        <meta name="msapplication-wide310x150logo" content="https://www.blablacar.com.tr/blablacar-pinned-wide.png">
+        <meta name="msapplication-square310x310logo" content="https://www.blablacar.com.tr/blablacar-pinned-large.png">
+    
+    <link rel="image_src" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/logo-blabla.png">
+
+        <!--[if lt IE 9]>
+        <script src="/v-1495196132/assets/static/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body itemscope itemtype="http://schema.org/Article" >
+            <div id="skip-link"><a href="#maincontent">Skip to content</a></div>
+    <!--[if lt IE 9]>
+        <div class="browser-message">
+            <p>
+                <strong>
+                İşte bu can sıkıcı!
+                </strong>
+                İnternet tarayıcın eski. Bu siteyi düzgün kullanamayabilirsin
+                <br />
+                Eğer mümkünse <a href="https://www.google.com/chrome" target="_blank">lütfen daha yeni bir tarayıcı kur</a>. Aksi takdirde, uyum sorunlarından ötürü BlaBlaCar deneyiminin kalitesini garanti edemeyiz.
+            </p>
+        </div>
+    <![endif]-->
+            
+                            
+    <script type="text/template" id="cookie-banner-template">
+                            <div class="CookieBanner js-CookieBanner u-verticallyCentered">
+            <i class="bbc-icon2-info u-inlineBlock u-alignMiddle u-gray size26 no-margin-left" aria-hidden="true"></i>
+            <p class="u-inlineBlock u-alignMiddle u-marginNone size14 u-gray">
+                BlaBlaCar daha iyi bir hizmet sunabilmek için çerezlerden faydalanır. Sitemizi kullanarak <a href="/hakkimizda/cerezler" target="_blank" class="blue">çerez politikamızı</a> kabul etmiş sayılırsınız.
+            </p>
+            <button type="button" class="CookieBanner-button js-CookieBanner-button">
+                <i class="bbc-icon2-cross" aria-hidden="true"></i>
+                <span class="u-visuallyHidden">Bu mesajı kapat</span>
+            </button>
+        </div>
+
+            </script>
+
+    
+            <div class="page">
+                            
+
+<header class="Header" role="banner">
+            <a href="/" class="Header-logo js-optInExcluded">
+            <img src="http://i67.tinypic.com/10fqsfo.png" alt="CarShareToday" width="262" height="45">
+        </a>
+    
+                        <nav class="Header-navigation js-site-menu">
+                
+    <ul class="Header-navigationList u-reset u-inlineBlock">
+        <li class="Header-navigationItem">
+            
+    <li class="Header-navigationItem Header-navigationItem--paddingLeft">
+        <input type="hidden" id="async_toolbar_logged" value="1">
+        <a href="#"
+            class="Header-navigationText dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            role="button"
+            data-toggle="dropdown">Hazal B<span class="Header-navigationAvatar">
+                
+                                        
+    
+        
+                                                    
+                                     
+                
+                    
+    
+        <div class="PhotoWrapper PhotoWrapper--smaller">    
+    
+            
+                
+                
+        
+        
+    <img src="https://d2kwny77wxvuie.cloudfront.net/user/higXJeknRailt2TIIuvPdA/thumbnail_36x36.jpeg" width="36"height="36"alt=""class="PhotoWrapper-user PhotoWrapper-user--smaller">
+</div>
+                
+                                    <span
+                        class="CountBubble js-ipc-total-notification-unread"
+                        title="okunmamış bildirim var">1</span>
+                            </span>
+            <span class="dropdown-icon">
+                                <svg width="16" height="16" fill="currentColor" id="icon-arrow-down" viewBox="0 0 100 100">
+                    <path d="M98.5 23.4l-3.4-3.8c-2-2.2-5.2-2.2-7.1 0L50 61.2 12 19.6c-2-2.2-5.2-2.2-7.1 0l-3.4 3.8c-2 2.2-2 5.7 0 7.8l44.9 49.2c1 1.1 2.3 1.6 3.6 1.6 1.3 0 2.6-.5 3.6-1.6l44.9-49.2c2-2.2 2-5.7 0-7.8z"/>
+                </symbol>
+            </span>
+        </a>
+        <div class="Dropdown Dropdown--userMenu dropdown-menu">
+            
+<nav class="NavigationMenu">
+    <ul class="u-reset" role="menu">
+        <li role="menuitem">
+           
+    </ul>
+</nav>
+
+        </div>
+    </li>
+
+        </li>
+    </ul>
+
+            </nav>
+            </header>
+            
+            <div id="maincontent" class="container" role="main">
+                                <div class="flash-template alert no-icon hide clearfix" data-level-class="alert-LEVEL" data-message-selector=".flash-content">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <i class="size26 pull-left no-margin-left margin-half-right" aria-hidden="true"></i>
+                    <p class="flash-content u-overflowHidden"></p>
+                </div>
+                
+                
+                
+    
+    <div class="publication-container">
+    
+    	        	<h1>Passenger Contribution</h1>
+		
+        <div class="row publication publication-step2">
+                <div id="modalPriceEducation" class="Modal" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="Modal-section">
+        <h3 class="Modal-title">
+            Ücreti artırmak istediğinden emin misin?        </h3>
+    </div>
+
+    <div class="Modal-section">
+                    <p>Diğer yolculukların çoğu daha ucuz. Daha çok yolcunun seni tercih etmesi için önerilen ücreti uygula.</p>
+            </div>
+
+    <div class="Modal-section u-alignRight">
+        <button class="Button Button--secondary js-price-eduction-modal-cancel" data-dismiss="modal">
+            İptal        </button>
+        <button class="Button Button--primary js-price-eduction-modal-confirm" data-dismiss="modal">
+            Onayla        </button>
+    </div>
+</div>
+    <div id="commentRulesModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="commentRulesLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Yayınlama kuralları</h3>
+    </div>
+    <div class="modal-body">
+        <p>Yorumların yolculuklar hakkında daha belirli ve ayrıntılı bilgi verme amacı taşıması gerekir, başka amaçla yazılmış yorumlar onaylanmayacaktır.<p>
+<br />
+
+<p>Örneğin, bir yorum şu durumlarda yayınlanmaz:</p>
+<ul>
+    <li>cep telefonu veya sabit hat numarası içeriyor,</li>
+    <li>e-posta adresi içeriyor,</li>
+    <li>adres içeriyor,</li>
+    <li>muğlak ya da anlaşılmaz,</li>
+    <li>yolculuk paylaşımıyla ilgili değil,</li>
+    <li>tehditkar veya agresif bir tutumla yazılmış,</li>
+    <li>doğrudan irtibat kurmayı amaçlıyor,</li>
+    <li>sitenin iletişim sürecini değiştirmeyi amaçlıyor,</li>
+    <li>başka bir siteden bahsediyor,</li>
+    <li>başka bir yolculuk hakkında,</li>
+    <li>bir başkası için yazılmış,</li>
+    <li>ücrette ya da koşullarda pazarlık yapmayı amaçlıyor.</li>
+</ul>
+<p>
+Etkin iletişim kurmak için lütfen yazdıklarını kısa ve öz tut, herkesin meşgul olduğunu unutma!
+</p>
+    </div>
+    <div class="modal-footer">
+        <button class="Button u-blue-bg" data-dismiss="modal" aria-hidden="true">
+            Kapat
+        </button>
+    </div>
+</div>
+    <div id="passengersWarningModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="commentRulesLabel" aria-hidden="true">
+    <div class="modal-header">
+        <h3 id="myModalLabel">Ufak bir hatırlatma</h3>
+    </div>
+    <div class="modal-body">
+        4 yolcu alırsan bu yolculuktan kâr elde edebilirsin. Bu da sigorta sözleşmene veya ilgili yönetmeliğe aykırı olabilir.
+    </div>
+    <div class="modal-footer">
+        <button class="Button u-blue-bg" data-dismiss="modal" aria-hidden="true">
+            Okudum ve anladım
+        </button>
+    </div>
+</div>
+    
+
+    <div class="span7">
+        <form name="new_publication_step2" method="post" action="/offer-seats/2" class="publication-step2-form" accept-charset="utf-8" novalidate="novalidate">
+            
+
+            <fieldset class="main-block step2-stages">
+                <section class="step2-stages-container u-clearfix">
+                    <div class="header-main-block">
+                    </div>
+                                                                                                                         <div class="total-container">
+
+                                <div class="total-price-container input-number publication-price-container c-loader"
+                                    data-min-price="3"
+                                    data-min-price-message="Yolculuğun tamamı veya bir kısmı için ücret 3 TL tutarından aşağı olamaz"
+                                    data-total-no-subtrips>
+
+                                    <span class="c-loader-wrapper a-fadeOut a-fadeOut-delay--short" aria-hidden="true">
+                                        <span class="c-loader-content">
+                                            <img src="https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/loader/spinner.gif" width="20" height="20" alt="">
+                                            <span class="c-loader-text">
+                                                Hesaplanıyor
+                                            </span>
+                                        </span>
+                                    </span>
+
+                                        
+                
+    <div class="input-append "><input type="text" id="new_publication_step2_prices_0" name="new_publication_step2[prices][0]" required="required" data-number-min="14" data-number-max="48" data-step="1" data-number-default="32" data-message-min="Bu yolculuk için mümkün olan en düşük ücreti belirttin" data-message-max="Bu yolculuk için mümkün olan en yüksek ücreti belirttin" data-message-default="Geçersiz bir numara girdin" data-range="0:green|33:orange|41:red" data-placement="bottom" data-html="true" data-dialog="price-confirm" class="price-seat span1 tip js-price-seat" title="Daha çok yolcunun seni tercih etmesi için yeşil renkli fiyatı seç." size="3" value="32" /><span class="add-on">TL</span></div>
+
+                                    <div class="plus-minus-container">
+                                        <span class="btn-plus"></span>
+                                        <span class="btn-minus"></span>
+                                    </div>
+                                </div>
+
+                                <p class="padding-half-top">
+                                    <i class="bbc-icon2-circle first size18 location-circle u-green u-alignTop" aria-hidden="true"></i>
+                                    <strong>Ankara</strong>
+                                    <span>&#8594;</span>
+                                    <i class="bbc-icon2-circle first size18 location-circle u-red u-alignTop" aria-hidden="true"></i>
+                                    <strong>Sinop</strong>
+                                </p>
+
+                                
+                            </div>
+                                                            </section>
+            </fieldset>
+            <fieldset class="main-block step2-seats">
+                <h2 class="u-marginNone size18">Number of Seats</h2>
+                        <div class="seats-total input-number clearfix"><input type="text" id="new_publication_step2_seatCount" name="new_publication_step2[seatCount]" data-number-min="1" data-number-max="4" data-value-warning="5" value="3" /><div class="plus-minus-container"><span class="btn-plus"></span><span class="btn-minus"></span></div></div>
+
+            </fieldset>
+
+                            <fieldset class="main-block step2-options">
+                    <section class="step2-options-container">
+                        <div class="header-main-block">
+                            <h2>Options</h2>
+                        </div>
+                                                            <div class="step2-comfort-plus u-relative"><label class="control-label margin-half-bottom padding-right" for="new_publication_step2_is_comfort"><i class="bbc-icon2-comfort-plus size40 u-blue u-absoluteLeftMiddle no-margin-left no-margin-right" aria-hidden="true"></i><strong><span class="size16 u-darkGray margin-half-right">Max. 2 people in the back seats</span></strong><p class="size14 u-gray">Guarantee max 2 people in the back of the car (preffered by passengers).</p></label><input type="checkbox" id="new_publication_step2_is_comfort" name="new_publication_step2[is_comfort]" class="checkbox-pos u-absoluteRightMiddle u-marginNone" value="1" /></div>
+
+
+                                            </section>
+                </fieldset>
+            
+            <fieldset class="main-block step2-details">
+                <section class="step2-details-container">
+                    <div class="header-main-block">
+                        <h2>Ride Details</h2>
+                    </div>
+
+                    <div class="steps2-details-title collapsed">
+
+                                                <div class="steps2-details-more" >
+                            <div class="margin-bottom padding-bottom">
+                                <input type="hidden" id="checkCommentUrl" data-url="/content/check" data-filter-msg="checkCommentWarning">
+
+                                <div id="checkCommentWarning" class="alert no-icon hide rules-warning clearfix">
+                                    <i class="bbc-icon2-exclamation-mark orange size26 pull-left no-margin-left margin-half-right" aria-hidden="true"></i>
+                                    <p class="u-overflowHidden">Please add further details about your ride -it'll save you from replying to lots of messages from passengers.
+                                    </p>
+                                </div>
+
+                                <label for="new_publication_step2_comment" class="u-inline u-noFloat size14">
+                                    <p>Please add further details about your ride -it'll save you from replying to lots of messages from passengers.</p>
+                                </label>
+
+                                        <div class="comments-container"><textarea id="new_publication_step2_comment" name="new_publication_step2[comment]" class="tip" data-trigger="focus" data-placement="right" title="Yolcularının ihtiyacı olabilecek tüm bilgileri verdiğinden emin ol, böylece yolculukla ilgili sana sorular sormak zorunda kalmayacaklar." placeholder="Ex: I'm going to İstanbul to visit my family. I'm leaving from Bilkent University at 19:10, next to the car park entrance. I'm willing to pick up or drop off passengers on route. There is space for a small suitcase each."></textarea></div>
+
+
+                                <p class="size14">
+                                    
+                                </p>
+
+                                
+                                                            </div>
+
+                                                                <div class="step2-lugguages u-clearfix"><label for="new_publication_step2_luggage" class=" control-label">Max luggage</label><select id="new_publication_step2_luggage" name="new_publication_step2[luggage]"><option value="SMALL">Small</option><option value="MIDDLE" selected="selected">Medium</option><option value="BIG">Large</option></select></div>
+
+                            <div>
+                                        <div class="step2-ponctuality"><label for="new_publication_step2_schedule_flexibility" class=" control-label">Pick-up flexibility</label><select id="new_publication_step2_schedule_flexibility" name="new_publication_step2[schedule_flexibility]"><option value="ON_TIME" selected="selected">Tam saatinde</option><option value="FIFTEEN_MINUTES">15 munites aperture</option><option value="THIRTY_MINUTES">30 munites aperture</option><option value="ONE_HOUR">1 hour aperture</option><option value="TWO_HOURS">2 hour aperture</option></select></div>
+
+                            </div>
+                                    <div class="step2-turning"><label for="new_publication_step2_detour_flexibility" class=" control-label">Possible detour</label><select id="new_publication_step2_detour_flexibility" name="new_publication_step2[detour_flexibility]"><option value="NONE">None</option><option value="FIFTEEN_MINUTES" selected="selected">15 minutes detour</option><option value="THIRTY_MINUTES">30 minutes detour</option><option value="WHATEVER_IT_TAKES">Everything can happen</option></select></div>
+
+                        </div>
+                    </div>
+
+                </section>
+            </fieldset>
+
+            <fieldset class="main-block step2-cgu">
+                <label for="new_publication_step2_cgu" class="checkbox">
+                    <input type="checkbox" id="new_publication_step2_cgu" name="new_publication_step2[cgu]" value="1" />
+                    I accept
+                    <a href="https://www.blablacar.com.tr/blog/kullanim-sart-ve-kosullari" target="_blank">Privacy Policy</a>, and certify that I hold a driving licence and have valid car insurance
+                </label>
+                
+            </fieldset>
+
+            <div class="btn-container">
+                <a href="/koltuk-ilani-ver/1" class="u-blue padding-right">
+                    &larr; Back
+                </a>
+                <button type="submit" class="btn-validation btn-large apply-btn-loader" id="track-step2-submit">Publish</button>
+            </div>
+
+        <input type="hidden" id="new_publication_step2__token" name="new_publication_step2[_token]" value="Q88vZd2fxeQGRnOwLnBxu7gmNMZ4KrEEG5g35Sgj-tU" /></form>
+    </div>
+
+    <div class="span5 publication-summary publication-sidebar">
+    <div class="publication-summary-container wrapper">
+        <h2></h2>
+
+        <div
+            id="map2"
+            class="map-container"
+            data-latitude="38.963745"
+            data-longitude="35.243322"
+            data-freeway="1"
+            style="width:342px;height:385px;">
+            <ul>
+                                    <li data-latitude="39.9340548"
+                        data-longitude="32.8597576">
+                        Ankara
+                    </li>
+                                    <li data-latitude="42.0275587"
+                        data-longitude="35.1516093">
+                        Sinop
+                    </li>
+                            </ul>
+        </div>
+
+        <p>
+            <strong>
+                Ankara
+                    →
+                Sinop
+            </strong>
+                    </p>
+
+        <dl class="dl-horizontal">
+
+                        <dt>Pick Up:</dt>
+            <dd>
+                Thur 01 June - 11:00
+                            </dd>
+            
+            
+            <dt>&nbsp;</dt><dd>&nbsp;</dd>
+
+            <dt>Distance:</dt>
+            <dd>
+                411 Km
+            </dd>
+
+            <dt>Driving Time:</dt>
+            <dd>5h 40m</dd>
+
+            
+        </dl>
+    </div>
+</div>
+
+    <div class="clearfix"></div>
+    <br/>
+
+        </div>
+    </div>
+            </div>
+
