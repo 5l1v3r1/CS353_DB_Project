@@ -95,17 +95,22 @@ app.get('/profile', function (req, res) {
 
 
 app.post('/profile', function (req, res) {
+
+
     sess = req.session;
 
     if (sess.email) {
 
-        var getUserInfoQuery = "SELECT * FROM USER WHERE email=\"" + sess.email + "\"";
+        var id = "SELECT ID FROM USER WHERE email = \"" + email + "\"";
 
         connection.query(getUserInfoQuery, function (error, results) {
             if (error)
                 throw error;
             if(results.length > 0) {
                 //login successful, set user credentials
+
+                //saveSettings(id, )
+
                 sess = req.session;
                 sess.name = results[0].fname;
                 sess.surname = results[0].lname;
