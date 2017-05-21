@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<header class="Header" role="banner">
+    <a href="/" class="Header-logo js-optInExcluded">
+        <img src="http://i67.tinypic.com/10fqsfo.png" alt="CarShareToday" width="262" height="45">
+    </a>
+
+    <nav class="Header-navigation js-site-menu">
+
+
+        <ul class="Header-navigationList u-reset u-inlineBlock">
+            <li class="Header-navigationItem">
+                <a href="/arac-paylasimi-ara"
+                   class="Header-navigationButton c-button c-button--primary">
+                        <span class="Header-navigationButton-icon">
+                            <svg aria-hidden="true" style="width: 18px; height: 18px; fill: currentColor;"><use
+                                    xlink:href="#icon-magnifyingglass"></use></svg>
+
+                        </span>Search For A Ride</span>
+                </a>
+            </li>
+
+            <li class="Header-navigationItem">
+                <a href="/koltuk-ilani-ver"
+                   class="Header-navigationButton c-button c-button--primary">
+                        <span class="Header-navigationButton-icon">
+                            <svg aria-hidden="true" style="width: 18px; height: 18px; fill: currentColor;"><use
+                                    xlink:href="#icon-plus-circle"></use></svg>
+
+                        </span>Offer A Ride</a>
+            </li>
+        </ul>
+
+        <ul class="Header-navigationList u-reset u-inlineBlock">
+            <li class="Header-navigationItem">
+
+            <li class="Header-navigationItem Header-navigationItem--paddingLeft">
+                <input type="hidden" id="async_toolbar_logged" value="1">
+                <a href="#"
+                   class="Header-navigationText dropdown-toggle"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   role="button"
+                   data-toggle="dropdown">Hazal B<span class="Header-navigationAvatar">
+    
+        <div class="PhotoWrapper PhotoWrapper--smaller">    
+
+    <img src="https://d2kwny77wxvuie.cloudfront.net/user/higXJeknRailt2TIIuvPdA/thumbnail_36x36.jpeg" width="36"
+         height="36" alt="" class="PhotoWrapper-user PhotoWrapper-user--smaller">
+</div>
+                
+                                    <span
+                                            class="CountBubble js-ipc-total-notification-unread"
+                                            title="okunmamış bildirim var">1</span>
+                            </span>
+                    <span class="dropdown-icon">
+                                <svg width="16" height="16" fill="currentColor" id="icon-arrow-down"
+                                     viewBox="0 0 100 100">
+                    <path d="M98.5 23.4l-3.4-3.8c-2-2.2-5.2-2.2-7.1 0L50 61.2 12 19.6c-2-2.2-5.2-2.2-7.1 0l-3.4 3.8c-2 2.2-2 5.7 0 7.8l44.9 49.2c1 1.1 2.3 1.6 3.6 1.6 1.3 0 2.6-.5 3.6-1.6l44.9-49.2c2-2.2 2-5.7 0-7.8z"/>
+                                    </symbol>
+            </span>
+                </a>
+                <div class="Dropdown Dropdown--userMenu dropdown-menu">
+
+                    <nav class="NavigationMenu">
+                        <ul class="u-reset" role="menu">
+                            <li role="menuitem">
+                                <a
+
+                                        href="/dashboard">Dashboard <span
+                                        class="CountBubble CountBubble--navigation"
+                                        title="okunmamış bildirim var">1</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a
+
+                                        href="/dashboard/trip-offers/active">Rides Offered</a>
+                            </li>
+                            <li role="menuitem">
+                                <a
+                                        class="active"
+                                        href="/dashboard/my-bookings">Bookings</a>
+                            </li>
+                            <li role="menuitem">
+                                <a
+
+                                        href="/messages/list">Messages<span
+                                        class="CountBubble CountBubble--navigation js-ipc-message-notification-unread u-hide"
+                                        title="No unread messages">0</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a
+
+                                        href="/dashboard/alerts">E-mail warnings</a>
+                            </li>
+                            <li role="menuitem">
+                                <a
+
+                                        href="/dashboard/profile/menu" class="profile">Profile</a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="/logout">Log out</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </li>
+
+            </li>
+        </ul>
+
+    </nav>
+</header>
+
+<div id="maincontent" class="container" role="main">
+    <div class="flash-template alert no-icon hide clearfix" data-level-class="alert-LEVEL"
+         data-message-selector=".flash-content">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
+        <i class="size26 pull-left no-margin-left margin-half-right" aria-hidden="true"></i>
+        <p class="flash-content u-overflowHidden"></p>
+    </div>
+
+
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="/dashboard">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/dashboard/trip-offers/active">Offered Rides</a>
+                </li>
+                <li class="active">
+                    <a href="/dashboard/my-bookings">Bookings</a>
+                </li>
+                <li>
+                    <a href="/ratings">Ratings</a>
+                </li>
+                <li>
+                    <a href="/dashboard/profile/general">Profile</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="tab-content my-trips">
+            <div class="tab-pane" id="bord"></div>
+            <div class="tab-pane active" id="billets">
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="/dashboard/my-bookings">Current</a>
+                    </li>
+                    <li class="active">
+                        <a href="/dashboard/my-bookings/history">History</a>
+                    </li>
+                </ul>
+
+                <p class="my-trips-no-result size14">
+                    See your booking history here. Current bookings are under current.
+                </p>
+
+                <div class="tab-pane active" id="current">
+                    <div class="my-trips-container u-clearfix">
+                        <ol class="u-reset">
+                        </ol>
+
+
+                    </div>
+
+
+                    </html>
