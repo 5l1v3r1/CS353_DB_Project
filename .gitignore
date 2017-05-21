@@ -14,3 +14,4 @@ docker-compose.yml
 *.DS_Store
 *.xml
 *.class
+*.iml
