@@ -93,6 +93,49 @@ app.get('/profile', function (req, res) {
     }
 });
 
+
+app.post('/profile', function (req, res) {
+    sess = req.session;
+
+    if (sess.email) {
+
+        var getUserInfoQuery = "SELECT * FROM USER WHERE email=\"" + sess.email + "\"";
+
+        connection.query(getUserInfoQuery, function (error, results) {
+            if (error)
+                throw error;
+            if(results.length > 0) {
+                //login successful, set user credentials
+                sess = req.session;
+                sess.name = results[0].fname;
+                sess.surname = results[0].lname;
+                sess.phone_num = results[0].phone_num;
+                sess.age = results[0].age;
+                sess.gender = results[0].gender;
+                sess.car_license_plate = results[0].car_license_plate;
+                sess.bank_account = results[0].bank_account;
+                sess.smokes = results[0].smokes;
+                sess.chattiness = results[0].chattiness;
+
+                res.render("pages/profile", {
+                    user: {
+                        name: sess.name,
+                        surname: sess.surname,
+                        email: sess.email,
+                        bank_account: sess.bank_account
+                    }
+                });
+
+                res.end();
+            }
+        });
+
+    } else {
+        res.write('<h1>Please login first.</h1>');
+        res.end('<a href="/">Login</a>');
+    }
+});
+
 app.post("/login", function (req, res) {
 
     sess = req.session;
