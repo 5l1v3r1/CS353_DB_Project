@@ -3,15 +3,15 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var app = express();
 
+var sess;
+
 app.use(express.static(__dirname + '/views'));
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
-
-
 app.use(session({secret: 'ssshhhhh'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -19,12 +19,18 @@ app.use(function(req, res, next) {
     next();
 });
 
-var sess;
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+    host     : 'dijkstra2.ug.bcc.bilkent.edu.tr',
+    user     : 'celik.koseoglu',
+    password : '3slndceo',
+    database : 'celik_koseoglu'
+});
 
 app.get('/', function (req, res) {
     sess = req.session;
     if (sess.email) { //check if the previous user has logged out or not. If not, then display personal page.
-        res.redirect('/admin');
+        res.redirect('/profile');
     }
     else {
         res.render('pages/login');
@@ -45,31 +51,43 @@ app.get('/logout', function (req, res) {
     });
 });
 
-app.get('/admin', function (req, res) {
+app.get('/profile', function (req, res) {
     sess = req.session;
+
     if (sess.email) {
-        res.write('<h1>Hello ' + sess.email + '</h1>');
-        res.end('<a href="/logout">Logout</a>');
+
+        var getNameQuery = "SELECT fname, lname FROM USER WHERE email=\"" + sess.email + "\"";
+
+        connection.query(getNameQuery, function (error, results) {
+            if (error)
+                throw error;
+            if(results.length > 0) {
+                //login successful, set user credentials
+                sess = req.session;
+                sess.name = results[0].fname;
+                sess.surname = results[0].lname;
+
+                res.render("pages/profile", {
+                    user: {
+                        name: sess.name,
+                        surname: sess.surname,
+                        email: sess.email
+                    }
+                });
+
+                res.end();
+            }
+        });
+
     } else {
         res.write('<h1>Please login first.</h1>');
         res.end('<a href="/">Login</a>');
     }
 });
 
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-    host     : 'dijkstra2.ug.bcc.bilkent.edu.tr',
-    user     : 'celik.koseoglu',
-    password : '3slndceo',
-    database : 'celik_koseoglu'
-});
-
-
 app.post("/login", function (req, res) {
 
     sess = req.session;
-    sess.email = req.body.user.email;
-    sess.password = req.body.user.password;
 
     console.log("email: " + req.body.user.email);
 
@@ -78,24 +96,37 @@ app.post("/login", function (req, res) {
     connection.query(getPasswordQuery, function (error, results) {
         if (error)
             throw error;
-        if(results.length > 0 &&  results[0].password == sess.password)
-            res.redirect('/admin');
+        if(results.length > 0 &&  results[0].password == req.body.user.password) {
+            //login successful, set user credentials
+            sess.email = req.body.user.email;
+            sess.password = req.body.user.password;
+
+            //redirect user to profile page
+            res.redirect('/profile');
+            console.log("Login OK. Redirect successful...")
+        }
         else {
-            res.end();
+            res.end("Username / Password wrong. Please go back and try again");
         }
     });
 });
 
 app.post("/register", function (req, res) {
 
-    var registerUserQuery = "INSERT INTO USER (ID, email, password, fname, lname, phone_num, age, rating, member_since, gender, car_license_plate, bank_account, smokes, chattiness) Values(321321321, \""+ req.body.user.email +"\", \""+ req.body.user.password +"\", \"" + req.body.user.name + "\", \""+ req.body.user.surname +"\", \"053421233\", 21, 5.0, \"2017\", \"boy\", \"06BRN123\", \"IBAN123123\", 0, 3)"
+    var registerUserQuery = "INSERT INTO USER (email, password, fname, lname, phone_num, age, rating, member_since, gender, bank_account, smokes, chattiness) Values(\""+ req.body.user.email +"\", \""+ req.body.user.password +"\", \"" + req.body.user.name + "\", \""+ req.body.user.surname +"\", \"053421233\", 21, 5.0, \"2017\", \"boy\", \"IBAN123123\", 0, 3)"
 
     connection.query(registerUserQuery, function (error, results, fields) {
-        if (error)
+        if (error) {
+            res.end("The user with this email already exists");
             throw error;
+        }
+        else {
+            sess = req.session;
+            sess.email = req.body.user.email;
+            sess.password = req.body.user.password;
+            res.redirect('/profile');
+        }
     });
-
-    res.end();
 });
 
 app.listen(3000, function () {
