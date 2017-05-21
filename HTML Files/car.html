@@ -147,10 +147,10 @@
                                     <li>
                         <a href="/dashboard/my-bookings">Bookings</a>
                     </li>
-                                <li class="active">
+                                <li>
                     <a href="/ratings">Ratings</a>
                 </li>
-                <li >
+                <li  class="active">
                     <a href="/dashboard/profile/general">Profile</a>
                 </li>
                                             </ul>
@@ -161,67 +161,74 @@
         <div class="tab-pane" id="bord"></div>
         <div class="tab-pane active" id="billets">
             <ul class="nav nav-pills">
+                <li>
+                    <a href="/dashboard/profile/personal-info">Personal Information</a>
+                </li>
+                <li>
+                    <a href="/dashboard/profile/preferences">Preferences</a>
+                </li>
                 <li class="active">
-                    <a href="/dashboard/ratings/leave-rating">Leave A Rating</a>
-                </li>
-                <li>
-                    <a href="/dashboard/ratings/received">Ratings You've Received</a>
-                </li>
-                <li>
-                    <a href="/dashboard/ratings/left">Ratings You've Left</a>
+                    <a href="/dashboard/profile/car">Car</a>
                 </li>
             </ul>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <h3 class="col-sm-offset-3 col-sm-6"> </h3>
+    </div
+    <br></br>
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-2">
+            
+        </div>
+        <div class="col-sm-6">
+            <form action="r" method="post" accept-charset="utf-8" class="form" role="form">
+                <div class="row">
+                    <div class="col-xs-6 col-md-6 text-right" >
+                        <p>Make <span class="glyphicon glyphicon-search"></span></p>
+                        </div>
+                    <div class="col-xs-6 col-md-6 pull-left">
+                        <input type="text" name="Make" value="" class="form-control input-lg" placeholder="Volvo"  />                        </div>
+                </div>
+                 <div class="row">
+                    <div class="col-xs-6 col-md-6 text-right" >
+                        <p>Model <span class="glyphicon glyphicon-search"></span></p>
+                        </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="Model" value="" class="form-control input-lg" placeholder="S60"  />                        </div>
+                </div>
+                 <div class="row">
+                    <div class="col-xs-6 col-md-6 text-right" >
+                        <p>Color <span class="glyphicon glyphicon-search"></span></p>
+                        </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="Color" value="" class="form-control input-lg" placeholder="Black"  />                        </div>
+                </div>
+                 <div class="row">
+                    <div class="col-xs-6 col-md-6 text-right" >
+                        <p>Type <span class="glyphicon glyphicon-search"></span></p>
+                        </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="Type" value="" class="form-control input-lg" placeholder="Sedan"  />                        </div>
+                </div>
+                 <div class="row">
+                    <div class="col-xs-6 col-md-6 text-right" >
+                        <p>Licence key </p>
+                        </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="Licence key" value="" class="form-control input-lg" placeholder="06AT1000"  />                        </div>
+                </div>
+            </form>          
+             
+                
+        </div>
+      </div>
+    </div>
+</div>
+	<input type="submit" value="Save" class="btn btn-primary pull-right">
 
-                            
-
-
-            <div class="container">
-
-<br></br>
 	
-
-	<form class="form-horizontal" style="max-width:450px;">
-		
-		                                                <p class="my-trips-no-result size14">
-                           Leave a rating for another member.
-                    </p>
-                    <p class="my-trips-no-result size14">
-                           Find a member you travelled with by entering their phone number.
-                    </p>
-                    <p></p>
-                    <br></br>
-                    
-		<div class="form-group">
-			<label class="col-sm-2 control-label">Phone</label>
-			<div class="col-sm-10">
-			    
-			
-				<div class="phone-list">
-				
-					<div class="input-group phone-input">
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="type-text">Type</span> <span class="caret"></span></button>
-							<ul class="dropdown-menu" role="menu">
-								<li><a class="changeType" href="javascript:;" data-type-value="phone">Phone</a></li>
-								<li><a class="changeType" href="javascript:;" data-type-value="fax">Fax</a></li>
-								<li><a class="changeType" href="javascript:;" data-type-value="mobile">Mobile</a></li>
-							</ul>
-						</span>
-						<input type="hidden" name="phone[1][type]" class="type-input" value="" />
-						<input type="text" name="phone[1][number]" class="form-control" placeholder="+1 (999) 999 9999" />
-					</div>
-					
-				</div>
-				<p></p>
-				<p></p>
-				<br></br>
-				<button type="button" class="btn btn-success btn-sm btn-add-phone"><span class="glyphicon glyphicon-search"></span> Search Member</button>
-			</div>
-			
-		</div>
-		
-	</form>
-    <hr>
 </div>
        
             </div>
