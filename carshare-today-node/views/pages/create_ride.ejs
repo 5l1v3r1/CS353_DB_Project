@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %>
+
+    <style>
+        body, html {
+            background: url('../assets/login-bg.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .main {
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row main">
+
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Create a Ride</h1>
+                <h3 class="title">share your car so others can benefit</h3>
+                <hr/>
+            </div>
+        </div>
+        <div class="main-login main-center">
+
+            <form class="form-horizontal" method="post" action="/create_ride">
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Number of Empty Seats</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[number_of_empty_seats]" id="name"
+                                   placeholder="e.g: 4"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Date and Time (DD/MM/YYYY-HH:MM)</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[date_and_time]" id="name"
+                                   placeholder="e.g: 11/06/2017-13:20"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Pickup Location</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[pickup_location]" id="name"
+                                   placeholder="e.g: st. Mary Magdalene street, Co-Op Market"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Dropoff Location</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[dropoff_location]" id="password"
+                                   placeholder="e.g: Gattwick Airport"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Max Luggage in KG per Person</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[max_luggage]" id="name"
+                                   placeholder="e.g: 20kg"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Pickup Flexibility</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-random" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[pickup_flexibility]" id="name"
+                                   placeholder="e.g: +-5Min"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Possible Detour</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[possible_detour]" id="name"
+                                   placeholder="e.g: 45Min"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Price</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-bitcoin" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[price]" id="name"
+                                   placeholder="e.g: 80TRY"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Other Details</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="ride[other_details]" id="name"
+                                   placeholder="e.g: my car smells nice"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block login-button">Create Ride
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

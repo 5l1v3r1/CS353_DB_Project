@@ -6,28 +6,32 @@
 
 <body>
 
-    <% include ../partials/profile_navbar.ejs %>
+<% include ../partials/profile_navbar.ejs %>
 
 <div class="col-md-12">
     <div class="card hovercard">
-        <div class="card-info"> <% if (user) { %>
-            <span><%= user.name %> <%= user.surname %></span>
+        <div class="card-info">
+            <% if (user) { %>
+            <h4>Hi! <%= user.name %> <%= user.surname %></h4>
             <% } %>
         </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span
+                        class="glyphicon glyphicon-road" aria-hidden="true"></span>
                 <div class="hidden-xs">Upcoming Rides</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span
+                        class="glyphicon glyphicon-time" aria-hidden="true"></span>
                 <div class="hidden-xs">Ride History</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            <button type="button" id="favorites" class="btn btn-default" href="#tab3" data-toggle="tab"><span
+                        class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 <div class="hidden-xs">Settings</div>
             </button>
         </div>
@@ -44,161 +48,94 @@
                 <h3>You rode from Ankara to Izmir on 11.02.2012</h3>
             </div>
             <div class="tab-pane fade in" id="tab3">
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input type="text" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                    <label>First Name:</label>
-                    <input type="text" class="form-control" id="phoneNumber">
-                </div>
-                <div class="form-group">
-                    <label>Last Name:</label>
-                    <input type="text" class="form-control" id="phoneNumber">
-                </div>
-                <div class="form-group">
-                    <label>Phone Num:</label>
-                    <input type="text" class="form-control" id="phoneNumber">
-                </div>
-                <div class="form-group">
-                    <label for="studentHowDidYouFindUs">Birth Date:</label>
-                    <div class="form-inline">
-                        <select class="form-control" id="studentBirthDay" style="width: auto;">
-                            <option>--</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                        </select>
-                        <select class="form-control" id="studentBirthMonth" style="width: auto;">
-                            <option>--</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                        <select onchange="birthYearSelectionChanged()" class="form-control" id="studentBirthYear" style="width: auto;">
-                            <option>--</option>
-                            <option>1970</option>
-                            <option>1971</option>
-                            <option>1972</option>
-                            <option>1973</option>
-                            <option>1974</option>
-                            <option>1975</option>
-                            <option>1976</option>
-                            <option>1977</option>
-                            <option>1978</option>
-                            <option>1979</option>
-                            <option>1980</option>
-                            <option>1981</option>
-                            <option>1982</option>
-                            <option>1983</option>
-                            <option>1984</option>
-                            <option>1985</option>
-                            <option>1986</option>
-                            <option>1987</option>
-                            <option>1988</option>
-                            <option>1989</option>
-                            <option>1990</option>
-                            <option>1991</option>
-                            <option>1992</option>
-                            <option>1993</option>
-                            <option>1994</option>
-                            <option>1995</option>
-                            <option>1996</option>
-                            <option>1997</option>
-                            <option>1998</option>
-                            <option>1999</option>
-                            <option>2000</option>
-                            <option>2001</option>
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option>2013</option>
-                        </select>
+                <form class="form-horizontal" method="post" action="/profile">
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input name="user[email]" value="<%= user.email %>" type="text" class="form-control" id="email">
                     </div>
-                </div>
-                <div>
-                    <label>Gender:</label>
-                    <div class="radio">
-                        <label><input type="radio" name="gender" value="Boy">Male</label>
+                    <div class="form-group">
+                        <label>First Name:</label>
+                        <input name="user[name]" value="<%= user.name %>" type="text" class="form-control"
+                               id="phoneNumber">
                     </div>
-                    <div class="radio">
-                        <label><input type="radio" name="gender" value="Girl">Female</label>
+                    <div class="form-group">
+                        <label>Last Name:</label>
+                        <input name="user[surname]" value="<%= user.surname %>" type="text" class="form-control"
+                               id="phoneNumber">
                     </div>
-                    <div class="radio">
-                        <label><input type="radio" name="gender" value="Girl">Little little into the middle</label>
+                    <div class="form-group">
+                        <label>Phone Num:</label>
+                        <input name="user[phone_num]" value="<%= user.phone_num %>" type="text" class="form-control"
+                               id="phoneNumber">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>Car License Plate:</label>
-                    <input value="<%= user.car_license_plate %>" type="text" class="form-control" id="carLicensePlate">
-                </div>
-                <div class="form-group">
-                    <label>Bank Account IBAN:</label>
-                    <input value="<%= user.bank_account %>" type="text" class="form-control" id="BankAccount">
-                </div>
-                <div>
-                    <label>Smokes:</label>
-                    <div class="radio">
-                        <label><input type="radio" name="gender" value="Boy">Yes</label>
+                    <div class="form-group">
+                        <label>Age:</label>
+                        <input name="user[age]" value="<%= user.age %>" type="text" class="form-control"
+                               id="phoneNumber">
                     </div>
-                    <div class="radio">
-                        <label><input type="radio" name="gender" value="Girl">No</label>
+                    <div>
+                        <label>Gender:</label>
+                        <div class="radio">
+                            <label><input name="user[gender]"
+                                        <% if(user.gender == "boy"){ %>
+                                          checked="checked"
+                                        <% } %>
+                                          type="radio" value="boy">Male</label>
+                        </div>
+                        <div class="radio">
+                            <label><input name="user[gender]"
+                                        <% if(user.gender == "girl"){ %>
+                                          checked="checked"
+                                        <% } %>
+                                          type="radio" value="girl">Female</label>
+                        </div>
+                        <div class="radio">
+                            <label><input name="user[gender]"
+                                        <% if(!user.gender){ %>
+                                          checked="checked"
+                                        <% } %>
+                                          type="radio" value="else">Something Else</label>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label>Car License Plate:</label>
+                        <input name="user[car_license_plate]" value="<%= user.car_license_plate %>" type="text"
+                               class="form-control" id="carLicensePlate">
+                    </div>
+                    <div class="form-group">
+                        <label>Bank Account IBAN:</label>
+                        <input name="user[bank_account]" value="<%= user.bank_account %>" type="text"
+                               class="form-control" id="BankAccount">
+                    </div>
+                    <div>
+                        <label>Smokes:</label>
+                        <div class="radio">
+                            <label><input name="user[smokes]"
+                                        <% if(user.smokes){ %>
+                                          checked="checked"
+                                        <% } %>
+                                          type="radio" value="Yes">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input name="user[smokes]"
+                                        <% if(!user.smokes){ %>
+                                          checked="checked"
+                                        <% } %>
+                                          type="radio" value="No">No</label>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group ">
+                        <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block login-button">Save
+                        </button>
+                    </div>
+                </form>
 
                 <br>
 
-                <h4>Member Since 10.02.2012</h4>
-
-                <div class="form-group ">
-                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block login-button">Save
-                    </button>
-                </div>
+                <h4>Member Since <%= user.member_since %></h4>
             </div>
         </div>
     </div>
@@ -207,7 +144,7 @@
 
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $(".btn-pref .btn").click(function () {
             $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
             // $(".tab").addClass("active"); // instead of this do the below
