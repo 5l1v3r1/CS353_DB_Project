@@ -51,7 +51,7 @@ app.get('/logout', function (req, res) {
     });
 });
 
-app.get('/profile', function (req, res) {
+function userInfo(req, res, next) {
     sess = req.session;
 
     if (sess.email) {
@@ -65,40 +65,37 @@ app.get('/profile', function (req, res) {
                 //login successful, set user credentials
                 sess = req.session;
                 sess.user_id = results[0].ID;
-                sess.name = results[0].fname;
-                sess.surname = results[0].lname;
-                sess.phone_num = results[0].phone_num;
-                sess.age = results[0].age;
-                sess.member_since = results[0].member_since;
-                sess.gender = results[0].gender;
-                sess.car_license_plate = results[0].car_license_plate;
-                sess.bank_account = results[0].bank_account;
-                sess.smokes = results[0].smokes;
 
-                res.render("pages/profile", {
-                    user: {
-                        name: sess.name,
-                        surname: sess.surname,
-                        email: sess.email,
-                        phone_num: sess.phone_num,
-                        age: sess.age,
-                        member_since: sess.member_since,
-                        gender: sess.gender,
-                        car_license_plate: sess.car_license_plate,
-                        bank_account: sess.bank_account,
-                        smokes: sess.smokes
-                    }
-                });
+                req.info = results;
 
-                res.end();
+                return next();
             }
         });
 
-    } else {
-        res.write('<h1>Please login first.</h1>');
-        res.end('<a href="/">Login</a>');
     }
-});
+}
+
+function userRidesInfo(req, res, next) {
+    var getScheduledRides = "SELECT * FROM SCHEDULED_RIDE WHERE driver_id = \"" + sess.user_id + "\"";
+
+    connection.query(getScheduledRides, function (error, results) {
+        if (error)
+            throw error;
+        if (results.length > 0) {
+            req.rides = results;
+            next();
+        }
+    });
+}
+
+function renderProfile(req, res) {
+    res.render('pages/profile', {
+        user : req.info,
+        ride : req.rides
+    });
+}
+
+app.get('/profile', userInfo, userRidesInfo, renderProfile);
 
 app.get('/available_rides', function (req, res) {
 
@@ -167,7 +164,7 @@ app.post('/profile', function (req, res) {
 
     if (sess.email) {
 
-        var updateUserQuery = "UPDATE USER SET email = \"" + req.body.user.email + "\", fname = \"" + req.body.user.name + "\", lname = \"" + req.body.user.surname + "\", phone_num = \"" + req.body.user.phone_num + "\", age=4, gender = \"" + req.body.user.gender + "\", car_license_plate = \"" + req.body.user.car_license_plate + "\", bank_account = \"" + req.body.user.bank_account + "\", smokes = " + (req.body.user.smokes == "No" ? 0 : 1) + " WHERE email=\"" + req.body.user.email + "\"";
+        var updateUserQuery = "UPDATE USER SET email = \"" + req.body.user.email + "\", fname = \"" + req.body.user.name + "\", lname = \"" + req.body.user.surname + "\", phone_num = \"" + req.body.user.phone_num + "\", age=4, gender = \"" + req.body.user.gender + "\", car_license_plate = \"" + req.body.user.car_license_plate + "\", bank_account = \"" + req.body.user.bank_account + "\", smokes = " + (req.body.user.smokes === "No" ? 0 : 1) + " WHERE email=\"" + req.body.user.email + "\"";
 
         connection.query(updateUserQuery, function (error, results) {
             if (error) {
@@ -193,7 +190,7 @@ app.post("/login", function (req, res) {
     connection.query(getPasswordQuery, function (error, results) {
         if (error)
             throw error;
-        if (results.length > 0 && results[0].password == req.body.user.password) {
+        if (results.length > 0 && results[0].password === req.body.user.password) {
             //login successful, set user credentials
             sess.email = req.body.user.email;
             sess.password = req.body.user.password;

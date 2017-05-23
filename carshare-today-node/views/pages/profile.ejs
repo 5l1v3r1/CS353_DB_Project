@@ -12,7 +12,7 @@
     <div class="card hovercard">
         <div class="card-info">
             <% if (user) { %>
-            <h4>Hi! <%= user.name %> <%= user.surname %></h4>
+            <h4>Hi! <%= user[0].fname %> <%= user[0].lname %></h4>
             <% } %>
         </div>
     </div>
@@ -37,11 +37,29 @@
         </div>
     </div>
 
-    <div class="well">
+    <div>
         <div class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
-                <h3>You have a ride to Istanbul at 21.02.2012</h3>
-                <h3>You have a ride to Ankara at 25.02.2012</h3>
+                <table id="table" class="table col-md-12">
+                    <thead>
+                    <tr>
+                        <th>Number of Empty Seats</th>
+                        <th>Date and Time</th>
+                        <th>Pickup Location</th>
+                        <th>Dropoff Location</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% ride.forEach(function (ride) { %>
+                    <tr>
+                        <td><%= ride.number_of_empty_seats %></td>
+                        <td><%= ride.date_and_time %></td>
+                        <td><%= ride.pickup_location %></td>
+                        <td><%= ride.dropoff_location %></td>
+                    </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane fade in" id="tab2">
                 <h3>You rode from Izmir to Ankara on 15.02.2012</h3>
@@ -51,47 +69,47 @@
                 <form class="form-horizontal" method="post" action="/profile">
                     <div class="form-group">
                         <label>Email:</label>
-                        <input name="user[email]" value="<%= user.email %>" type="text" class="form-control" id="email">
+                        <input name="user[email]" value="<%= user[0].email %>" type="text" class="form-control" id="email">
                     </div>
                     <div class="form-group">
                         <label>First Name:</label>
-                        <input name="user[name]" value="<%= user.name %>" type="text" class="form-control"
+                        <input name="user[name]" value="<%= user[0].fname %>" type="text" class="form-control"
                                id="phoneNumber">
                     </div>
                     <div class="form-group">
                         <label>Last Name:</label>
-                        <input name="user[surname]" value="<%= user.surname %>" type="text" class="form-control"
+                        <input name="user[surname]" value="<%= user[0].lname %>" type="text" class="form-control"
                                id="phoneNumber">
                     </div>
                     <div class="form-group">
                         <label>Phone Num:</label>
-                        <input name="user[phone_num]" value="<%= user.phone_num %>" type="text" class="form-control"
+                        <input name="user[phone_num]" value="<%= user[0].phone_num %>" type="text" class="form-control"
                                id="phoneNumber">
                     </div>
                     <div class="form-group">
                         <label>Age:</label>
-                        <input name="user[age]" value="<%= user.age %>" type="text" class="form-control"
+                        <input name="user[age]" value="<%= user[0].age %>" type="text" class="form-control"
                                id="phoneNumber">
                     </div>
                     <div>
                         <label>Gender:</label>
                         <div class="radio">
                             <label><input name="user[gender]"
-                                        <% if(user.gender == "boy"){ %>
+                                        <% if(user[0].gender == "boy"){ %>
                                           checked="checked"
                                         <% } %>
                                           type="radio" value="boy">Male</label>
                         </div>
                         <div class="radio">
                             <label><input name="user[gender]"
-                                        <% if(user.gender == "girl"){ %>
+                                        <% if(user[0].gender == "girl"){ %>
                                           checked="checked"
                                         <% } %>
                                           type="radio" value="girl">Female</label>
                         </div>
                         <div class="radio">
                             <label><input name="user[gender]"
-                                        <% if(!user.gender){ %>
+                                        <% if(!user[0].gender){ %>
                                           checked="checked"
                                         <% } %>
                                           type="radio" value="else">Something Else</label>
@@ -99,26 +117,26 @@
                     </div>
                     <div class="form-group">
                         <label>Car License Plate:</label>
-                        <input name="user[car_license_plate]" value="<%= user.car_license_plate %>" type="text"
+                        <input name="user[car_license_plate]" value="<%= user[0].car_license_plate %>" type="text"
                                class="form-control" id="carLicensePlate">
                     </div>
                     <div class="form-group">
                         <label>Bank Account IBAN:</label>
-                        <input name="user[bank_account]" value="<%= user.bank_account %>" type="text"
+                        <input name="user[bank_account]" value="<%= user[0].bank_account %>" type="text"
                                class="form-control" id="BankAccount">
                     </div>
                     <div>
                         <label>Smokes:</label>
                         <div class="radio">
                             <label><input name="user[smokes]"
-                                        <% if(user.smokes){ %>
+                                        <% if(user[0].smokes){ %>
                                           checked="checked"
                                         <% } %>
                                           type="radio" value="Yes">Yes</label>
                         </div>
                         <div class="radio">
                             <label><input name="user[smokes]"
-                                        <% if(!user.smokes){ %>
+                                        <% if(!user[0].smokes){ %>
                                           checked="checked"
                                         <% } %>
                                           type="radio" value="No">No</label>
