@@ -65,6 +65,8 @@ function userInfo(req, res, next) {
                 //login successful, set user credentials
                 sess = req.session;
                 sess.user_id = results[0].ID;
+                sess.car_license_plate = results[0].car_license_plate;
+
 
                 req.info = results;
 
