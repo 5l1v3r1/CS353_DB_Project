@@ -147,9 +147,6 @@ app.post('/create_ride', function (req, res) {
 
     var createRideQuery = "INSERT INTO SCHEDULED_RIDE (number_of_empty_seats, date_and_time, pickup_location, dropoff_location, driver_id, driver_license_plate, max_luggage, pickup_flexibility, possible_detour, price, other_details) VALUES (" + number_of_empty_seats + ", \"" + date_and_time + "\", \"" + pickup_location + "\", \"" + dropoff_location + "\", " + sess.user_id + ", \"" + sess.car_license_plate + "\", " + max_luggage + ", \"" + pickup_flexibility + "\", \"" + possible_detour + "\", " + price + ", \"" + other_details + "\")";
 
-    console.log(createRideQuery);
-    console.log("Hello World");
-
     connection.query(createRideQuery, function (error, results, fields) {
         if (error) {
             throw error;
