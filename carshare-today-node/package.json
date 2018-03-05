@@ -4,7 +4,7 @@
   "main": "server.js",
   "description": "carshare.today backend. CS353 DB Project",
   "dependencies": {
-    "ejs": "^1.0.0",
+    "ejs": "^2.5.5",
     "express": "^4.8.7",
     "express-session": "^1.7.6",
     "body-parser": "1.17.2",
